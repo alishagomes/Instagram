@@ -10,6 +10,8 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
+import android.os.Looper;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
@@ -40,16 +42,19 @@ public class MainActivity extends AppCompatActivity {
     private Button btnSubmit;
     private File photoFile;
     private String photoFileName = "photo.jpg";
+    Button logoutButton;
+    Button feedButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         etDescription = findViewById(R.id.etDescription);
         btnCaptureImage = findViewById(R.id.btnCaptureImage);
         ivPostImage = findViewById(R.id.ivPostImage);
         btnSubmit = findViewById(R.id.btnSubmit);
+        logoutButton = findViewById(R.id.logoutButton);
+        feedButton = findViewById(R.id.feedButton);
 
         btnCaptureImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,7 +63,27 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        logoutButton.setOnClickListener(new View.OnClickListener() {
 
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                ParseUser.logOut();
+                ParseUser currentUser = ParseUser.getCurrentUser(); // this will now be null
+
+            }
+        });
+
+        feedButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Log.i(TAG,"Pressed");
+                Intent i = new Intent(MainActivity.this, FeedActivity.class);
+                startActivity(i);
+
+            }
+        });
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,6 +101,8 @@ public class MainActivity extends AppCompatActivity {
                 savePost(description, currentUser, photoFile);
             }
         });
+
+
     }
 
     private void launchCamera() {
@@ -97,6 +124,7 @@ public class MainActivity extends AppCompatActivity {
             startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
         }
     }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
