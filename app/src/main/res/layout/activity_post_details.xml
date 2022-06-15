@@ -8,12 +8,12 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/username"
+        android:id="@+id/timestamp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        tools:text="rahul" />
+        android:text="Timestamp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        tools:text="Timestamp" />
 
     <ImageView
         android:id="@+id/postImage"
@@ -27,6 +27,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        tools:text="trying to look hipster" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        tools:text="Caption" />
 </LinearLayout>
-

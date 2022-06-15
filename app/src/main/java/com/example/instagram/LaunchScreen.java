@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 
+/**
+ * for displaying splash screen before login page
+ */
 public class LaunchScreen extends AppCompatActivity {
 
     @Override

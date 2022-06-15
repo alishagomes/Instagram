@@ -14,12 +14,15 @@ import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 
+/**
+ * for login page
+ */
+
 public class LoginActivity extends AppCompatActivity {
     public static final String TAG = "LoginActivity";
-    private EditText etUsername;
-    private EditText etPassword;
-    private Button btnLogin;
-
+    private EditText name;
+    private EditText userPassword;
+    private Button buttonLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,25 +33,20 @@ public class LoginActivity extends AppCompatActivity {
             goMainActivity();
         }
 
+        name = findViewById(R.id.name);
+        userPassword = findViewById(R.id.password);
+        buttonLogin = findViewById(R.id.buttonLogin);
 
-        etUsername = findViewById(R.id.etUsername);
-        etPassword = findViewById(R.id.etPassword);
-        btnLogin = findViewById(R.id.btnLogin);
-
-
-
-        btnLogin.setOnClickListener(new View.OnClickListener() {
+        buttonLogin.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
                Log.i(TAG, "onClick login button");
-               String username = etUsername.getText().toString();
-               String password = etPassword.getText().toString();
+               String username = name.getText().toString();
+               String password = userPassword.getText().toString();
                loginUser(username, password);
            }
         });
     }
-
-
     private void loginUser(String username, String password) {
         Log.i(TAG, "Attempting to login user " + username);
 
@@ -60,20 +58,15 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(LoginActivity.this, "Issue with login", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                // navigate to the main activity if the user has signed in properly
+                /** navigate to the main activity if the user has signed in properly */
                 goMainActivity();
                 Toast.makeText(LoginActivity.this, "Success!", Toast.LENGTH_SHORT).show();
             }
         });
     }
-
-
     private void goMainActivity() {
         Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
         finish();
     }
-
-
-
 }
