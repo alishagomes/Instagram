@@ -1,5 +1,6 @@
 package com.example.instagram;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -16,6 +17,8 @@ public class LaunchScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launch_screen);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
 
         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
             @Override

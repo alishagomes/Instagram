@@ -9,9 +9,13 @@
         <entry key="app/src/main/res/layout/activity_launch_screen.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.29188232421875004" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.17893829345703127" />
-        <entry key="app/src/main/res/layout/activity_post_details.xml" value="0.31606903076171877" />
+        <entry key="app/src/main/res/layout/activity_post_details.xml" value="0.2803848266601563" />
+        <entry key="app/src/main/res/layout/fragment_compose.xml" value="0.27392272949218754" />
+        <entry key="app/src/main/res/layout/fragment_posts.xml" value="0.26855163574218754" />
+        <entry key="app/src/main/res/layout/item_layout.xml" value="0.1" />
         <entry key="app/src/main/res/layout/item_post.xml" value="0.24560699462890626" />
         <entry key="app/src/main/res/layout/launch_screen.xml" value="0.18112030029296877" />
+        <entry key="app/src/main/res/menu/menu_bottom_navigation.xml" value="0.2224609375" />
         <entry key="app/src/main/res/xml/fileprovider.xml" value="0.11956521739130435" />
       </map>
     </option>

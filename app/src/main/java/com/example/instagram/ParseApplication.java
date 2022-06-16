@@ -5,6 +5,10 @@ import android.app.Application;
 import com.parse.Parse;
 import com.parse.ParseObject;
 
+/**
+ * for implementing Parse in application
+ */
+
 public class ParseApplication extends Application {
     @Override
     public void onCreate() {

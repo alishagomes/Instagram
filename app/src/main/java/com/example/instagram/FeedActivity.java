@@ -31,27 +31,25 @@ public class FeedActivity extends AppCompatActivity {
         recyclerViewPosts = findViewById(R.id.recyclerViewPosts);
         allPosts = new ArrayList<>();
         adapter = new PostsAdapter(this, allPosts);
-        /** set the adapter on the recycler view */
         recyclerViewPosts.setAdapter(adapter);
-        /** set the layout manager on the recycler view */
         recyclerViewPosts.setLayoutManager(new LinearLayoutManager(this));
-        /** query posts from Parstagram */
         queryPosts();
+
         swipeContainer = (SwipeRefreshLayout) findViewById(R.id.swipeContainer);
         swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                /** Your code to refresh the list here. */
+
                 adapter.clear();
                 queryPosts();
                 swipeContainer.setRefreshing(false);
             }
         });
-        /** Configure the refreshing colors */
         swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright,
                 android.R.color.holo_green_light,
                 android.R.color.holo_orange_light,
                 android.R.color.holo_red_light);
+
     }
     private void queryPosts() {
         /** specify what type of data we want to query - Post.class */

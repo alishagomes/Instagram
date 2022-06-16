@@ -16,7 +16,12 @@ import com.parse.ParseFile;
 
 import org.parceler.Parcels;
 
+import java.util.Date;
 import java.util.List;
+
+/**
+ * adapter class
+ */
 
 public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder>{
 
@@ -51,18 +56,23 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder>{
         private TextView name;
         private ImageView postImage;
         private TextView textDescription;
+        private TextView timestamp;
 
         public ViewHolder (@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.username);
             postImage = itemView.findViewById(R.id.postImage);
             textDescription = itemView.findViewById(R.id.caption);
+            timestamp = itemView.findViewById(R.id.timestamp);
             itemView.setOnClickListener(this);
         }
         /** Bind the post data to the view elements */
         public void bind(Post post) {
             textDescription.setText(post.getDescription());
             name.setText(post.getUser().getUsername());
+            Date createdAt = post.getCreatedAt();
+            String timeAgo = Post.calculateTimeAgo(createdAt);
+            timestamp.setText(timeAgo);
             ParseFile image = post.getImage();
             if (image != null) {
                 Glide.with(context).load(image.getUrl()).into(postImage);
