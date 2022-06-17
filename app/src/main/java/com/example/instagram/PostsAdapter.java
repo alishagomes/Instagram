@@ -2,6 +2,7 @@ package com.example.instagram;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +26,7 @@ import java.util.List;
 
 public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder>{
 
+    private static final String TAG = "Error";
     private Context context;
     private List<Post> posts;
 
@@ -57,6 +59,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder>{
         private ImageView postImage;
         private TextView textDescription;
         private TextView timestamp;
+        private ImageView profileImage;
 
         public ViewHolder (@NonNull View itemView) {
             super(itemView);
@@ -64,6 +67,8 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder>{
             postImage = itemView.findViewById(R.id.postImage);
             textDescription = itemView.findViewById(R.id.caption);
             timestamp = itemView.findViewById(R.id.timestamp);
+            /** Setting the profile image */
+            profileImage = itemView.findViewById(R.id.profileImage);
             itemView.setOnClickListener(this);
         }
         /** Bind the post data to the view elements */
@@ -73,10 +78,17 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder>{
             Date createdAt = post.getCreatedAt();
             String timeAgo = Post.calculateTimeAgo(createdAt);
             timestamp.setText(timeAgo);
+
             ParseFile image = post.getImage();
             if (image != null) {
                 Glide.with(context).load(image.getUrl()).into(postImage);
             }
+            /** For the profile image */
+            ParseFile userImage = post.getUser().getParseFile("profilePicture");
+            if (userImage != null) {
+                Glide.with(context).load(userImage.getUrl()).into(profileImage);
+            }
+
         }
         @Override
         public void onClick(View v) {

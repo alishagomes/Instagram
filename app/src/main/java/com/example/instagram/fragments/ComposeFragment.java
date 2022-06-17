@@ -83,7 +83,7 @@ public class ComposeFragment extends Fragment {
             public void onClick(View v) {
                 startActivity(new Intent(getContext(), LoginActivity.class));
                 ParseUser.logOut();
-                ParseUser currentUser = ParseUser.getCurrentUser(); // this will now be null
+                ParseUser currentUser = ParseUser.getCurrentUser();
 
             }
         });
