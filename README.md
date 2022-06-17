@@ -9,8 +9,7 @@ Time spent: **25** hours spent in total
 The following **required** functionality is completed:
 
 - [x] User sees app icon in home screen.
-- [ ] User can sign up to create a new account using Parse authentication<sup>*</sup> 
-    - <sup>*</sup> This feature was not listed in the codepath steps guide so it is not completed. From Codepath Instructor, Chris Guzman: "I've told codepath that the portal and the README conflict. I've suggested that we make the sign up feature an optional story".<sup>*</sup> 
+- [x] User can sign up to create a new account using Parse authentication<sup>*</sup>
 - [x] User can log in to their account
 - [x] The current signed in user is persisted across app restarts
 - [x] User can log out of their account
@@ -19,6 +18,7 @@ The following **required** functionality is completed:
 - [x] User can pull to refresh the last 20 posts submitted to "Instagram"
 - [x] User can tap a post to go to a Post Details activity, which includes timestamp and caption.
 
+<sup>*</sup> From Codepath Instructor, Chris Guzman: "I've told codepath that the portal and the README conflict. I've suggested that we make the sign up feature an optional story".<sup>*</sup> 
 
 The following **stretch** features are implemented:
 
