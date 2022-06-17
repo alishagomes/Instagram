@@ -18,6 +18,8 @@ The following **required** functionality is completed:
 - [x] User can pull to refresh the last 20 posts submitted to "Instagram"
 - [x] User can tap a post to go to a Post Details activity, which includes timestamp and caption.
 
+*(From Codepath Instructor, Chris Guzman: I've told codepath that the portal and the README conflict. I've suggested that we make the sign up feature an optional story.)
+
 The following **stretch** features are implemented:
 
 - [x] Style the login page to look like the real Instagram login page.
