@@ -43,7 +43,7 @@ The following **additional** features are implemented:
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1. How to show posts in a grid 
+1. How to do endless scrolling
 2. How users can comment on a post
 
 ## Video Walkthrough
